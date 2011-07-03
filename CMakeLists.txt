@@ -11,6 +11,13 @@ INCLUDE(${VTK_USE_FILE})
 FIND_PACKAGE(Qt4 REQUIRED)
 INCLUDE(${QT_USE_FILE})
 
+SET (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin CACHE INTERNAL "Single output directory for building all libraries.")
+SET (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin CACHE INTERNAL "Single output directory for building all executables.")
+
+include(${PROJECT_SOURCE_DIR}/CMake/GetRuntime.cmake)
+include(${PROJECT_SOURCE_DIR}/CMake/GetQtRuntime.cmake)
+include(${PROJECT_SOURCE_DIR}/CMake/VLDSupport.cmake)
+
 QT4_WRAP_UI(UISrcs Form.ui)
 QT4_WRAP_CPP(MOCSrcs Form.h)
 
